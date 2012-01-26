@@ -1,0 +1,50 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/lib/jquery-1.7.1.min.js"></script>
+  <script src="js/script.js"></script>
+  <!--[if IE]><script src="js/lib/excanvas.js"></script><![endif]-->
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <span>Select Jenkins server</span>
+    </header>
+    <div id="main" role="main">
+      <div id="load-section">
+      </div>
+      <div id="graph-section">
+      </div>
+      <br/>
+      <div "analysis-section">
+        <div class="formesque">
+          <label>Total Time:</label><input id="totalTime" readonly="" value="0"/><br/>
+          <label>Total Test Count:</label><input id="totalTestCount" readonly="" value="0"/><br/>
+        </div>
+        <br/>
+        <div class="scrollable">
+          <table>
+            <thead>
+              <tr>
+                <th>Test Class</th>
+                <th>Test Name</th>
+                <th>Test Time</th>
+              </tr>
+            </thead>
+            <tbody id="analysis-data">
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="log" class="scrollable"></div>
+    </div>
+    <footer>
+    </footer>
+  </div>
+</body>
+</html>

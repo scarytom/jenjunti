@@ -1,0 +1,71 @@
+body {
+  font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+  color: #003399;
+}
+
+div {
+  width: 700px;
+}
+
+br {
+  clear: left;
+}
+
+#log {
+  display: none;
+}
+
+div.scrollable {
+  height: 300px;
+  overflow: auto;
+  border: 1px solid #666;
+  padding: 8px;
+}
+
+div.formesque {
+  background-color: #f3f3f3;
+  border: solid 1px #a1a1a1;
+  padding: 10px;
+  width: 300px;
+}
+    
+div.formesque label, div.formesque input {
+  display: block;
+  width: 120px;
+  float: left;
+  margin-bottom: 10px;
+}
+ 
+div.formesque label {
+  text-align: right;
+  padding-right: 20px;
+  font-size: 14px;
+}
+
+table {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 20px;
+    text-align: left;
+    width: 600px;
+}
+
+table th {
+    border-bottom: 2px solid #6678B1;
+    color: #003399;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 8px;
+}
+
+table td {
+    border-bottom: 1px solid #CCCCCC;
+    color: #666699;
+    padding: 6px 8px;
+}
+
+table tbody tr:hover td {
+    color: #000099;
+}
+
