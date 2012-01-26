@@ -7,16 +7,20 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/lib/jquery-1.7.1.min.js"></script>
   <script src="js/script.js"></script>
-  <!--[if IE]><script src="js/lib/excanvas.js"></script><![endif]-->
 </head>
 
 <body>
   <div id="container">
     <header>
-      <span>Select Jenkins server</span>
+      <span>Jenkins JUnit Timings</span>
     </header>
     <div id="main" role="main">
       <div id="load-section">
+        <div class="formesque">
+          <label>Jenkins URL:</label><input id="url" value="jenkins.mydomain.com"/><br/>
+          <label>Target Name:</label><input id="target" value="MyBuild"/><br/>
+          <button id="go-button">Analyse</button>
+        </div>
       </div>
       <div id="graph-section">
       </div>

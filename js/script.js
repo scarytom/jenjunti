@@ -27,5 +27,17 @@ $(document).ready(function() {
     $("#log").empty();
   }
 
+  function analyse(data) {
+
+  }
+
+  function go() {
+    var url = $("#url").val() + "/job/" + $("#target").val() + "/lastCompletedBuild/testReport/api/json?jsonp=?";
+    $.getJSON(url, function(data) {
+      analyse(data);
+    });
+  }
+
+  $("#go-button").click(go);
   clear();
 });
