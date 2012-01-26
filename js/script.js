@@ -28,7 +28,7 @@ $(document).ready(function() {
   }
 
   function analyse(data) {
-    var testData = [], sum = 0;
+    var testData = [];
     totals(data.duration, data.passCount + data.failCount);
     $.each(data.suites, function(suiteIndex, suite) {
       $.each(suite.cases, function(caseIndex, testcase) {
@@ -52,9 +52,7 @@ $(document).ready(function() {
 
     $.each(testData, function(index, datum) {
       addTestRow(datum.testClass, datum.testMethod, datum.testDuration);
-      sum += datum.testDuration;
     });
-    alert(sum);
   }
 
   function go() {
