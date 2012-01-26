@@ -11,13 +11,13 @@ $(document).ready(function() {
     $("#totalTestCount").val(count);
   }
 
-  function addTestRow(testClass, testMethod, time) {
+  function addTestRow(testClass, testMethod, testDuration) {
     var row = $("<tr></tr>");
+    row.append($("<td></td>").text(testDuration));
     row.append($("<td></td>").text(testClass));
     row.append($("<td></td>").text(testMethod));
-    row.append($("<td></td>").text(time));
 
-    $("#analysis-data").prepend(row);
+    $("#analysis-data").append(row);
   }
 
   function clear() {
@@ -28,14 +28,38 @@ $(document).ready(function() {
   }
 
   function analyse(data) {
+    var testData = [], sum = 0;
+    totals(data.duration, data.passCount + data.failCount);
+    $.each(data.suites, function(suiteIndex, suite) {
+      $.each(suite.cases, function(caseIndex, testcase) {
+        testData.push({
+          "testClass": testcase.className,
+          "testMethod": testcase.name,
+          "testDuration": testcase.duration
+        });
+      });
+    });
 
+    testData.sort(function(a, b) {
+      if (a.testDuration !== b.testDuration) {
+        return b.testDuration - a.testDuration;
+      }
+      if (a.testClass !== b.testClass) {
+        return a.testClass - b.testClass;
+      }
+      return a.testMethod - b.testMethod;
+    });
+
+    $.each(testData, function(index, datum) {
+      addTestRow(datum.testClass, datum.testMethod, datum.testDuration);
+      sum += datum.testDuration;
+    });
+    alert(sum);
   }
 
   function go() {
     var url = $("#url").val() + "/job/" + $("#target").val() + "/lastCompletedBuild/testReport/api/json?jsonp=?";
-    $.getJSON(url, function(data) {
-      analyse(data);
-    });
+    $.getJSON(url, analyse);
   }
 
   $("#go-button").click(go);
